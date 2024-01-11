@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-city-weather-detail',
@@ -9,13 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './city-weather-detail.component.sass'
 })
 export class CityWeatherDetailComponent {
-  id: any;
-  constructor(private activatedRoute: ActivatedRoute) {
-
-  }
+  @Input() id: any;
 
   ngOnInit() {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.id);
   }
 }

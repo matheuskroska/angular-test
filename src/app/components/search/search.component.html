@@ -1,0 +1,5 @@
+<div class="search-container" [formGroup]="searchForm">
+  <input type="text" class="search-input" placeholder="Search" formControlName="city" />
+  <!-- <input type="text" class="search-input" placeholder="Search" (input)="searchCity()" formControlName="city" /> -->
+  <button class="search-button" (click)="searchWeather()">Search</button>
+</div>
