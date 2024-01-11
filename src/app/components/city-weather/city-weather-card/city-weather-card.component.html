@@ -1,0 +1,14 @@
+<p>city-weather-card works!</p>
+
+@for (weather of weathers; track $index) {
+    <ul>
+      <li>{{weather.location.country}}</li>
+      <li>{{weather.location.name}}</li>
+      <li>{{weather.location.region}}</li>
+      <li>{{weather.current.temp_c}}</li>
+      <li>{{$index}}</li>
+      <a routerLink="/detail/{{weather.location.lat + weather.location.lon}}">Details</a>
+    </ul>
+}
+@empty {
+  <p>no data</p>}
