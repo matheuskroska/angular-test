@@ -1,14 +1,19 @@
 <p>city-weather-card works!</p>
 
 @for (weather of weathers; track $index) {
-    <ul>
-      <li>{{weather.location.country}}</li>
-      <li>{{weather.location.name}}</li>
-      <li>{{weather.location.region}}</li>
-      <li>{{weather.current.temp_c}}</li>
-      <li>{{$index}}</li>
-      <a routerLink="/detail/{{weather.location.lat + weather.location.lon}}">Details</a>
-    </ul>
+<ul>
+  <li>{{weather.location.country}}</li>
+  <li>{{weather.location.name}}</li>
+  <li>{{weather.location.region}}</li>
+  <li>{{weather.current.temp_c}}</li>
+  <li>{{$index}}</li>
+  <li>{{weather.location.updatedAt}}</li>
+  <a routerLink="/detail/{{weather.location.url}}">Details</a>
+  <button (click)="removeCityWeatherData(weather.location.url)"><mat-icon aria-hidden="false"
+      aria-label="Example home icon" fontIcon="delete"></mat-icon></button>
+  <button (click)="triggerCityWeatherUpdate(weather.location.url)"><mat-icon aria-hidden="false"
+      aria-label="Example home icon" fontIcon="refresh"></mat-icon></button>
+</ul>
 }
 @empty {
-  <p>no data</p>}
+<p>no data</p>}

@@ -1,1 +1,8 @@
 <p>city-weather-detail works! and has id {{id}}</p>
+
+
+@if(cityWeatherForecast) {
+<p>{{cityWeatherForecast.current.condition.text}}</p>
+} @else {
+<p>no data</p>
+}

@@ -1,12 +1,23 @@
 import { Component, inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
 import { WeatherService } from '../../services/weather.service';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AsyncPipe } from '@angular/common';
+import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import { City } from '../../models/city.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    AsyncPipe],
   templateUrl: './search.component.html',
   styleUrl: './search.component.sass'
 })
@@ -14,25 +25,22 @@ import { WeatherService } from '../../services/weather.service';
 export class SearchComponent {
   private weatherService = inject(WeatherService);
 
-  searchForm!: FormGroup;
-
-  constructor(private fb: FormBuilder, private service: WeatherService) { }
+  control = new FormControl('');
+  cities$!: Observable<City[]>;
 
   ngOnInit() {
-    this.searchForm = this.fb.group({
-      city: [null, Validators.required]
+    this.cities$ = this.control.valueChanges.pipe(
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap(value => this.weatherService.searchCityNames(value || ''))
+    );
+  }
+
+  onCitySelected(cityName: string) {
+    this.weatherService.searchWeatherData(cityName).pipe(
+      map(city => (this.weatherService.prepareCityWeatherData(city, cityName)))
+    ).subscribe(updatedCity => {
+      this.weatherService.getWeatherData(updatedCity);
     });
   }
-
-  searchWeather() {
-    this.service.searchWeatherData(this.searchForm.get(['city'])!.value).subscribe((city) => {
-      this.service.updateWeatherData(city);
-    })
-  }
-
-  // searchCity() {
-  //   this.service.searchCityNames(this.searchForm.get(['city'])!.value).subscribe((cityNames) => {
-
-  //   })
-  // }
 }

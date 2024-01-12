@@ -1,5 +1,9 @@
-<div class="search-container" [formGroup]="searchForm">
-  <input type="text" class="search-input" placeholder="Search" formControlName="city" />
-  <!-- <input type="text" class="search-input" placeholder="Search" (input)="searchCity()" formControlName="city" /> -->
-  <button class="search-button" (click)="searchWeather()">Search</button>
-</div>
+<form class="example-form">
+  <input type="text" placeholder="Search for a City" [formControl]="control" [matAutocomplete]="auto"
+    class="example-input">
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCitySelected($event.option.value)">
+    @for (city of cities$ | async; track city) {
+    <mat-option [value]="city.url">{{city.name + " - " + city.region + " - " + city.country}}</mat-option>
+    }
+  </mat-autocomplete>
+</form>
