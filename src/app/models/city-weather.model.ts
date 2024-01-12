@@ -1,4 +1,4 @@
-interface Location {
+export interface Location {
   name: string;
   region: string;
   country: string;
@@ -7,6 +7,7 @@ interface Location {
   tz_id: string;
   localtime_epoch: number;
   localtime: string;
+  url: string;
 }
 
 interface Condition {
@@ -15,7 +16,7 @@ interface Condition {
   code: number;
 }
 
-interface CurrentWeather {
+export interface CurrentWeather {
   last_updated_epoch: number;
   last_updated: string;
   temp_c: number;
