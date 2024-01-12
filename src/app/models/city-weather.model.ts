@@ -8,6 +8,7 @@ export interface Location {
   localtime_epoch: number;
   localtime: string;
   url: string;
+  updatedAt: string;
 }
 
 interface Condition {
