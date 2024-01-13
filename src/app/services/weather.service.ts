@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, BehaviorSubject, scan, map } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { CityWeather } from '../models/city-weather.model';
@@ -10,10 +10,9 @@ import { CityWeatherForecast } from '../models/city-weather-forecast.model';
   providedIn: 'root'
 })
 export class WeatherService {
+  private http = inject(HttpClient);
   private dataSource = new BehaviorSubject<CityWeather[]>([]);
   weatherData$ = this.dataSource.asObservable();
-
-  constructor(private http: HttpClient) { }
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders().set("key", environment.apiKey);

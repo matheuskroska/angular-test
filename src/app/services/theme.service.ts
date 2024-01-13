@@ -5,14 +5,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  private _theme = new BehaviorSubject<string>('light');
-  theme$ = this._theme.asObservable();
+  private theme = new BehaviorSubject<string>('light');
+  theme$ = this.theme.asObservable();
 
   setTheme(theme: string): void {
-    this._theme.next(theme);
+    this.theme.next(theme);
   }
 
   getTheme(): string {
-    return this._theme.value;
+    return this.theme.value;
   }
 }

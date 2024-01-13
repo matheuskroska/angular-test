@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ThemeService } from '../../services/theme.service';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, MatToolbarModule],
+  imports: [RouterLink, MatToolbarModule, MatSlideToggleModule, MatIconModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  constructor(private themeService: ThemeService) { }
+  themeService = inject(ThemeService);
 
   toggleTheme(): void {
     const newTheme = this.themeService.getTheme() === 'light' ? 'dark' : 'light';

@@ -1,7 +1,12 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Weather</span>
-    <button mat-button routerLink="/">Home</button>
-    <button (click)="toggleTheme()">Toggle Theme</button>
+    <a routerLink="/">Weather</a>
+    @if(themeService.getTheme() === 'light') {
+    <p>Light mode</p>
+    <mat-icon (click)="toggleTheme()" aria-hidden="false" aria-label="dark mode icon" fontIcon="dark_mode"></mat-icon>
+    } @else {
+    <p>Dark mode</p>
+    <mat-icon (click)="toggleTheme()" aria-hidden="false" aria-label="light mode icon" fontIcon="light_mode"></mat-icon>
+    }
   </mat-toolbar-row>
 </mat-toolbar>
