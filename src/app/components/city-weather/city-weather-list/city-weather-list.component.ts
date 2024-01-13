@@ -6,7 +6,7 @@ import { CityWeatherCardComponent } from '../city-weather-card/city-weather-card
   standalone: true,
   imports: [CityWeatherCardComponent],
   templateUrl: './city-weather-list.component.html',
-  styleUrl: './city-weather-list.component.sass'
+  styleUrl: './city-weather-list.component.scss'
 })
 export class CityWeatherListComponent {
 

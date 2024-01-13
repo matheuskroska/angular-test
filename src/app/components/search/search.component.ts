@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
     ReactiveFormsModule,
     AsyncPipe],
   templateUrl: './search.component.html',
-  styleUrl: './search.component.sass'
+  styleUrl: './search.component.scss'
 })
 
 export class SearchComponent {

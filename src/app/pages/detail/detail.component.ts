@@ -7,14 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [CityWeatherDetailComponent],
   templateUrl: './detail.component.html',
-  styleUrl: './detail.component.sass'
+  styleUrl: './detail.component.scss'
 })
 export class DetailComponent {
-    id: any;
+  id: any;
 
-    constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute) { }
 
-    ngOnInit() {
-      this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    }
+  ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+  }
 }

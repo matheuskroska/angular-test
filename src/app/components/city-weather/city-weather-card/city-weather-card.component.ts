@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, RouterLink, MatIconModule],
   templateUrl: './city-weather-card.component.html',
-  styleUrl: './city-weather-card.component.sass'
+  styleUrl: './city-weather-card.component.scss'
 })
 export class CityWeatherCardComponent {
   private weatherService = inject(WeatherService);

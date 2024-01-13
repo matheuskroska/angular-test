@@ -8,7 +8,7 @@ import { CityWeatherForecast } from '../../../models/city-weather-forecast.model
   standalone: true,
   imports: [],
   templateUrl: './city-weather-detail.component.html',
-  styleUrl: './city-weather-detail.component.sass'
+  styleUrl: './city-weather-detail.component.scss'
 })
 export class CityWeatherDetailComponent {
   private weatherService = inject(WeatherService);
