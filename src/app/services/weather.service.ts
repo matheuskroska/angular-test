@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, BehaviorSubject, scan, map } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { CityWeather } from '../models/city-weather.model';
 import { City } from '../models/city.model';
@@ -58,12 +58,12 @@ export class WeatherService {
 
   searchWeatherData(cityName: string): Observable<CityWeather> {
     const options = { headers: this.getHeaders() };
-    return this.http.get<CityWeather>(`${environment.apiUrl}/current.json?q=${cityName}`, options);
+    return this.http.get<CityWeather>(`${environment.apiUrl}/current.json?q=${cityName}&lang=pt`, options);
   }
 
   searchWeatherDataForecast(cityName: string): Observable<CityWeatherForecast> {
     const options = { headers: this.getHeaders() };
-    return this.http.get<CityWeatherForecast>(`${environment.apiUrl}/forecast.json?q=${cityName}`, options);
+    return this.http.get<CityWeatherForecast>(`${environment.apiUrl}/forecast.json?q=${cityName}&days=3&lang=pt`, options);
   }
 
   searchCityNames(cityName: string): Observable<City[]> {

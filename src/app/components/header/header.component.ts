@@ -4,7 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ThemeService } from '../../services/theme.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-header',

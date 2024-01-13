@@ -30,6 +30,12 @@ $dark-theme: mat.define-dark-theme(
   )
 );
 
+$typography: mat.define-typography-config(
+  $font-family: '"Open Sans", sans-serif'
+);
+
+@include mat.typography-hierarchy($typography);
+
 .light-theme {
   @include mat.all-component-colors($light-theme);
 }
@@ -37,12 +43,6 @@ $dark-theme: mat.define-dark-theme(
 .dark-theme {
   @include mat.all-component-colors($dark-theme);
 }
-
-$typography: mat.define-typography-config(
-  $font-family: '"Open Sans", sans-serif'
-);
-
-@include mat.typography-hierarchy($typography);
 
 html {
   font-size: 62.5%;
@@ -74,6 +74,15 @@ html *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+.mdc-button__label {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .container {

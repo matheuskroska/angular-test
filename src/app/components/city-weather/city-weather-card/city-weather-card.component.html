@@ -1,19 +1,69 @@
-<p>city-weather-card works!</p>
-
-@for (weather of weathers; track $index) {
-<ul>
-  <li>{{weather.location.country}}</li>
-  <li>{{weather.location.name}}</li>
-  <li>{{weather.location.region}}</li>
-  <li>{{weather.current.temp_c}}</li>
-  <li>{{$index}}</li>
-  <li>{{weather.location.updatedAt}}</li>
-  <a routerLink="/detail/{{weather.location.url}}">Details</a>
-  <button (click)="removeCityWeatherData(weather.location.url)"><mat-icon aria-hidden="false"
-      aria-label="Example home icon" fontIcon="delete"></mat-icon></button>
-  <button (click)="triggerCityWeatherUpdate(weather.location.url)"><mat-icon aria-hidden="false"
-      aria-label="Example home icon" fontIcon="refresh"></mat-icon></button>
-</ul>
-}
-@empty {
-<p>no data</p>}
+<mat-card class="city-weather-card">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="tooltip">
+        <p class="mat-body-2 city-weather-city">{{weather.location.name + ', '}}</p>
+        <span class="tooltiptext">{{weather.location.name}}</span>
+      </div>
+      <div class="tooltip">
+        <p class="mat-body-2 city-weather-state">{{weather.location.region}}</p>
+        <span class="tooltiptext">{{weather.location.region}}</span>
+      </div>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <p class="mat-body-2 city-weather-country">{{weather.location.country}}</p>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="city-weather-card__column">
+      <div class="city-weather-card__container">
+        <div class="city-weather-card__wrapper">
+          <img [src]="weather.current.condition.icon" [alt]="weather.current.condition.text" class="city-weather-icon">
+        </div>
+        <div class="city-weather-card__wrapper">
+          <p class="mat-body-2 city-weather-temp">{{weather.current.temp_c}}°C</p>
+          <p class="mat-body-2 city-weather-feelslike">Sensação: {{weather.current.feelslike_c}}°C</p>
+        </div>
+      </div>
+      <p class="mat-body-2 city-weather-condition">{{weather.current.condition.text}}</p>
+    </div>
+    <div class="city-weather-card__column">
+      <div class="tooltip city-weather-wind">
+        {{weather.current.wind_kph}} km/h
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="air"></mat-icon>
+        <span class="tooltiptext">Vento</span>
+      </div>
+      <div class="tooltip city-weather-humidity">
+        {{weather.current.humidity}}%
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="water_drop"></mat-icon>
+        <span class="tooltiptext">Umidade</span>
+      </div>
+      <div class="tooltip city-weather-precipitation">
+        {{weather.current.precip_mm}} mm
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="cloud_snowing"></mat-icon>
+        <span class="tooltiptext">Precipitação</span>
+      </div>
+      <div class="tooltip city-weather-cloud">
+        {{weather.current.cloud}}%
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="cloud_queue"></mat-icon>
+        <span class="tooltiptext">Nuvens</span>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <p class="mat-body-2 city-weather-updated">Atualizado em:{{weather.location.updatedAt}}</p>
+    <a class="detail-btn" mat-raised-button color="primary" routerLink="/detail/{{weather.location.url}}">Mais
+      detalhes</a>
+    <div class="floating-buttons">
+      <button mat-mini-fab color="primary" (click)="triggerCityWeatherUpdate(weather.location.url)"><mat-icon
+          aria-hidden="false" aria-label="Example home icon" fontIcon="refresh"></mat-icon></button>
+      <button mat-mini-fab color="accent" (click)="removeCityWeatherData(weather.location.url)"><mat-icon
+          aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon></button>
+    </div>
+  </mat-card-actions>
+  @if(isLoading) {
+  <div class="city-weather-spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  }
+</mat-card>

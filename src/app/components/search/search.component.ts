@@ -8,6 +8,7 @@ import { AsyncPipe } from '@angular/common';
 import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
 import { City } from '../../models/city.model';
 import { Observable } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-search',
@@ -17,7 +18,7 @@ import { Observable } from 'rxjs';
     MatInputModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    AsyncPipe],
+    AsyncPipe, MatIconModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
 })
@@ -30,7 +31,7 @@ export class SearchComponent {
 
   ngOnInit() {
     this.cities$ = this.control.valueChanges.pipe(
-      debounceTime(1000),
+      debounceTime(500),
       distinctUntilChanged(),
       filter(value => value!.length > 3),
       switchMap(value => this.weatherService.searchCityNames(value || ''))
@@ -42,6 +43,7 @@ export class SearchComponent {
       map(city => (this.weatherService.prepareCityWeatherData(city, cityName)))
     ).subscribe(updatedCity => {
       this.weatherService.getWeatherData(updatedCity);
+      this.control.reset("");
     });
   }
 }
