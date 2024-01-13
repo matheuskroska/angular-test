@@ -1,7 +1,7 @@
 <form class="search-form">
   <mat-form-field class="search-full-width">
-    <mat-label>City</mat-label>
-    <input type="text" matInput placeholder="Search for a City" [formControl]="control" [matAutocomplete]="auto"
+    <mat-label>Busque por cidade</mat-label>
+    <input type="text" matInput placeholder="Curitiba" [formControl]="control" [matAutocomplete]="auto"
       class="search-input">
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCitySelected($event.option.value)">
       @for (city of cities$ | async; track city) {

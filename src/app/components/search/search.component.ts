@@ -5,7 +5,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AsyncPipe } from '@angular/common';
-import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
 import { City } from '../../models/city.model';
 import { Observable } from 'rxjs';
 
@@ -32,6 +32,7 @@ export class SearchComponent {
     this.cities$ = this.control.valueChanges.pipe(
       debounceTime(1000),
       distinctUntilChanged(),
+      filter(value => value!.length > 3),
       switchMap(value => this.weatherService.searchCityNames(value || ''))
     );
   }
