@@ -1,0 +1,27 @@
+mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.theme-toggler {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.mat-caption {
+  margin-bottom: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+
+.svg-text {
+  margin-bottom: 1rem;
+}
