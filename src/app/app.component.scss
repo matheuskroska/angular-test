@@ -1,1 +1,46 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 100%;
+}
 
+.footer:before,
+.footer:after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  background-image: url(../assets/images/cloud.svg);
+  background-repeat: no-repeat;
+}
+
+.footer:before {
+  content: "";
+  left: -230px;
+  width: 730px;
+  height: 440px;
+  bottom: 0px;
+  background-size: 720px;
+}
+
+.footer:after {
+  content: "";
+  width: 730px;
+  height: 440px;
+  bottom: 0px;
+  right: -200px;
+  background-size: 720px;
+}
+
+.logo:after {
+  content: "";
+  background-image: url(../assets/images/logo-text.svg);
+  width: 210px;
+  height: 36px;
+  position: absolute;
+  left: 16px;
+  bottom: 20px;
+  background-repeat: no-repeat;
+}
