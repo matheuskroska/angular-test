@@ -1,5 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
-import { WeatherService } from '@services/weather.service';
+import { WeatherService } from '@services/weather/weather.service';
 import { CommonModule } from '@angular/common';
 import { CityWeather } from '@models/city-weather.model';
 import { RouterLink } from '@angular/router';
@@ -11,6 +11,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { PrepareWeatherService } from '@services/prepare-weather/prepare-weather.service';
+import { WeatherDataControlService } from '@services/weather-data-control/weather-data-control.service';
 
 
 @Component({
@@ -22,6 +24,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class CityWeatherCardComponent {
   private weatherService = inject(WeatherService);
+  private prepareWeatherService = inject(PrepareWeatherService);
+  private weatherDataControlService = inject(WeatherDataControlService);
   private refreshCityWeatherSubject = new Subject<string>();
   @Input() weather!: CityWeather;
   isLoading = false;
@@ -39,7 +43,7 @@ export class CityWeatherCardComponent {
   }
 
   removeCityWeatherData(cityUrl: string) {
-    this.weatherService.deleteWeatherData(cityUrl);
+    this.weatherDataControlService.deleteCityWeather(cityUrl);
   }
 
   triggerCityWeatherUpdate(cityUrl: string) {
@@ -49,9 +53,9 @@ export class CityWeatherCardComponent {
 
   updateCityWeatherData(cityUrl: string) {
     this.weatherService.searchWeatherData(cityUrl).pipe(
-      map(city => (this.weatherService.prepareCityWeatherData(city, cityUrl)))
+      map(city => (this.prepareWeatherService.prepareCityWeatherData(city, cityUrl)))
     ).subscribe(updatedCity => {
-      this.weatherService.getWeatherData(updatedCity);
+      this.weatherDataControlService.updateCityWeather(updatedCity);
       this.isLoading = false;
     });
   }

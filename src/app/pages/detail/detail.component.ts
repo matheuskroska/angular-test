@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageHeaderComponent } from '@components/page-header/page-header.component';
 import { CityWeatherForecast } from '@models/city-weather-forecast.model';
-import { WeatherService } from '@services/weather.service';
+import { WeatherService } from '@services/weather/weather.service';
 import { CityWeatherCardForecastComponent } from '@components/city-weather/city-weather-card-forecast/city-weather-card-forecast.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CityWeatherCardDailyForecastComponent } from '@components/city-weather/city-weather-card-daily-forecast/city-weather-card-daily-forecast.component';
@@ -30,6 +30,9 @@ export class DetailComponent {
 
     this.weatherService.searchWeatherDataForecast(this.id).subscribe((city: CityWeatherForecast) => {
       this.cityWeatherForecast = city;
+      console.log(this.cityWeatherForecast);
     });
+
+
   }
 }

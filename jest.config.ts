@@ -73,10 +73,7 @@ const config: Config = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
-
+  moduleDirectories: ["node_modules", "<rootDir>"],
   // An array of file extensions your modules use
   // moduleFileExtensions: [
   //   "js",
@@ -90,7 +87,12 @@ const config: Config = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '^src\/(.*)$': '<rootDir>/src/$1',
+    '^@components\/(.*)$': '<rootDir>/src/app/components/$1',
+    '^@services\/(.*)$': '<rootDir>/src/app/services/$1',
+    '^@environments\/(.*)$': '<rootDir>/src/environments/$1',
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

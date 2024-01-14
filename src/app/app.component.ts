@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ThemeService } from './services/theme.service';
+import { ThemeService } from './services/theme/theme.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';

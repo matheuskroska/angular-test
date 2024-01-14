@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
-import { WeatherService } from '@services/weather.service';
+import { WeatherService } from '@services/weather/weather.service';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -9,6 +9,8 @@ import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs
 import { City } from '@models/city.model';
 import { Observable } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
+import { PrepareWeatherService } from '@services/prepare-weather/prepare-weather.service';
+import { WeatherDataControlService } from '@services/weather-data-control/weather-data-control.service';
 
 @Component({
   selector: 'app-search',
@@ -25,6 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 export class SearchComponent {
   private weatherService = inject(WeatherService);
+  private prepareWeatherService = inject(PrepareWeatherService);
+  private weatherDataControlService = inject(WeatherDataControlService);
 
   control = new FormControl('');
   cities$!: Observable<City[]>;
@@ -40,9 +44,9 @@ export class SearchComponent {
 
   onCitySelected(cityName: string) {
     this.weatherService.searchWeatherData(cityName).pipe(
-      map(city => (this.weatherService.prepareCityWeatherData(city, cityName)))
+      map(city => (this.prepareWeatherService.prepareCityWeatherData(city, cityName)))
     ).subscribe(updatedCity => {
-      this.weatherService.getWeatherData(updatedCity);
+      this.weatherDataControlService.addCityWeather(updatedCity);
       this.control.reset("");
     });
   }
