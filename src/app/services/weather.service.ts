@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { CityWeather } from '../models/city-weather.model';
-import { City } from '../models/city.model';
-import { CityWeatherForecast } from '../models/city-weather-forecast.model';
+import { environment } from '@environments/environment';
+import { CityWeather } from '@models/city-weather.model';
+import { City } from '@models/city.model';
+import { CityWeatherForecast } from '@models/city-weather-forecast.model';
 
 @Injectable({
   providedIn: 'root'

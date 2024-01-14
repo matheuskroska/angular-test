@@ -1,0 +1,32 @@
+<mat-card class="city-weather-natural-language">
+  <mat-card-content>
+    @if(weather === 'current') {
+    <mat-card-title>Previsão para hoje</mat-card-title>
+    <p>
+      O tempo hoje em <b>{{cityWeatherForecast.location.name}}</b> é de
+      <b>{{cityWeatherForecast.current.condition.text}}.</b>
+      Durante o dia a temperatura máxima será de
+      <b>{{cityWeatherForecast.forecast.forecastday[0].day.maxtemp_c}}ºC</b>
+      e a
+      mínima de <b>{{cityWeatherForecast.forecast.forecastday[0].day.mintemp_c}}ºC.</b>
+      A velocidade máxima do vento pode ser de até
+      <b>{{cityWeatherForecast.forecast.forecastday[0].day.maxwind_kph}}km/h.</b>
+      A previsão indica que chuvas tem probabilidade de
+      <b>{{cityWeatherForecast.forecast.forecastday[0].day.daily_chance_of_rain}}%.</b>
+    </p>
+    } @else {
+    <mat-card-title>Previsão para amanhã</mat-card-title>}
+    <p>
+      O tempo amanhã em <b>{{cityWeatherForecast.location.name}}</b> é de
+      <b>{{cityWeatherForecast.forecast.forecastday[1].day.condition.text}}.</b>
+      Durante o dia a temperatura máxima será de
+      <b>{{cityWeatherForecast.forecast.forecastday[1].day.maxtemp_c}}ºC</b>
+      e a
+      mínima de <b>{{cityWeatherForecast.forecast.forecastday[1].day.mintemp_c}}ºC.</b>
+      A velocidade máxima do vento pode ser de até
+      <b>{{cityWeatherForecast.forecast.forecastday[1].day.maxwind_kph}}km/h.</b>
+      A previsão indica que chuvas tem probabilidade de
+      <b>{{cityWeatherForecast.forecast.forecastday[1].day.daily_chance_of_rain}}%.</b>
+    </p>
+  </mat-card-content>
+</mat-card>

@@ -1,21 +1,33 @@
-import { Component } from '@angular/core';
-import { CityWeatherDetailComponent } from '../../components/city-weather/city-weather-detail/city-weather-detail.component';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PageHeaderComponent } from '../../components/page-header/page-header.component';
+import { PageHeaderComponent } from '@components/page-header/page-header.component';
+import { CityWeatherForecast } from '@models/city-weather-forecast.model';
+import { WeatherService } from '@services/weather.service';
+import { CityWeatherCardForecastComponent } from '@components/city-weather/city-weather-card-forecast/city-weather-card-forecast.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CityWeatherCardDailyForecastComponent } from '@components/city-weather/city-weather-card-daily-forecast/city-weather-card-daily-forecast.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CityWeatherCardHourlyForecastComponent } from '@components/city-weather/city-weather-card-hourly-forecast/city-weather-card-hourly-forecast.component';
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [CityWeatherDetailComponent, PageHeaderComponent],
+  imports: [PageHeaderComponent, CityWeatherCardForecastComponent, MatProgressSpinnerModule, CityWeatherCardDailyForecastComponent, MatTabsModule, CityWeatherCardHourlyForecastComponent],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss'
 })
 export class DetailComponent {
+  private weatherService = inject(WeatherService);
+  private activatedRoute = inject(ActivatedRoute);
   id: any;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  cityWeatherForecast!: CityWeatherForecast;
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.weatherService.searchWeatherDataForecast(this.id).subscribe((city: CityWeatherForecast) => {
+      this.cityWeatherForecast = city;
+    });
   }
 }

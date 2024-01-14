@@ -1,0 +1,22 @@
+<div class="city-weather-detail-forecast-day">
+  <div>
+    <img src="{{cityWeatherForecastDay.day.condition.icon}}" alt="{{cityWeatherForecastDay.day.condition.text}}">
+    <p>maxtemp_c: {{cityWeatherForecastDay.day.maxtemp_c}}</p>
+    <p>mintemp_c: {{cityWeatherForecastDay.day.mintemp_c}}</p>
+    <p>maxwind_kph: {{cityWeatherForecastDay.day.maxwind_kph}}</p>
+    <p>avghumidity: {{cityWeatherForecastDay.day.avghumidity}}</p>
+    <p>totalprecip_mm: {{cityWeatherForecastDay.day.totalprecip_mm}}</p>
+    <p>{{cityWeatherForecastDay.day.condition.text}}</p>
+  </div>
+  <div>
+    <h2>Astro</h2>
+    <p>sunrise: {{cityWeatherForecastDay.astro.sunrise}}</p>
+    <p>sunset: {{cityWeatherForecastDay.astro.sunset}}</p>
+    <p>moonrise: {{cityWeatherForecastDay.astro.moonrise}}</p>
+    <p>moonset: {{cityWeatherForecastDay.astro.moonset}}</p>
+    <p>moon_phase: {{cityWeatherForecastDay.astro.moon_phase}}</p>
+    <p>moon_illumination: {{cityWeatherForecastDay.astro.moon_illumination}}</p>
+    <p>is_moon_up: {{cityWeatherForecastDay.astro.is_moon_up}}</p>
+    <p>is_sun_up {{cityWeatherForecastDay.astro.is_sun_up}}</p>
+  </div>
+</div>

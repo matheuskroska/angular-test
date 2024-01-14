@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
-import { WeatherService } from '../../services/weather.service';
+import { WeatherService } from '@services/weather.service';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AsyncPipe } from '@angular/common';
 import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
-import { City } from '../../models/city.model';
+import { City } from '@models/city.model';
 import { Observable } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 

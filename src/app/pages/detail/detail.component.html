@@ -1,4 +1,43 @@
 <div class="page-detail container">
   <app-page-header icon="air" title="Visão Detalhada" subtitle="dados meteorologicos"></app-page-header>
-  <app-city-weather-detail [id]="id"></app-city-weather-detail>
+  @if(cityWeatherForecast) {
+
+  <div>
+    <app-city-weather-card-forecast [weather]="'current'"
+      [cityWeatherForecast]="cityWeatherForecast"></app-city-weather-card-forecast>
+    <app-city-weather-card-forecast [weather]="'tomorrow'"
+      [cityWeatherForecast]="cityWeatherForecast"></app-city-weather-card-forecast>
+  </div>
+
+  <div>
+    <h1>Previsão do tempo próximos 3 dias</h1>
+
+    <div>
+      @for (day of cityWeatherForecast.forecast.forecastday; track $index) {
+      <app-city-weather-card-daily-forecast [cityWeatherForecastDay]="day"></app-city-weather-card-daily-forecast>
+      }
+    </div>
+  </div>
+
+  <div>
+    <mat-tab-group>
+      @for (day of cityWeatherForecast.forecast.forecastday; track $index) {
+      <mat-tab label={{day.date}}>
+        <div>
+          @for (hour of day.hour; track $index) {
+          <app-city-weather-card-hourly-forecast
+            [cityWeatherForecastHour]="hour"></app-city-weather-card-hourly-forecast>
+          }
+        </div>
+      </mat-tab>
+      }
+    </mat-tab-group>
+  </div>
+
+
+
+  }@else {
+  <mat-spinner></mat-spinner>
+  }
+
 </div>

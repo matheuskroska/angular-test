@@ -1,0 +1,33 @@
+mat-card.city-weather-detail mat-card-header {
+  justify-content: center;
+}
+
+.city-weather-detail-forecast {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.city-weather-detail-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.city-weather-detail-header-body {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.weather-list {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 380px);
+  justify-content: center;
+  justify-items: center;
+  gap: 20px;
+}
+
+.weather-list-item {
+  max-width: 400px;
+  width: 100%;
+}

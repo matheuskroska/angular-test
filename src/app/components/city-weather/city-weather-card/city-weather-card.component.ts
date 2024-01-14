@@ -1,7 +1,7 @@
 import { Component, Input, inject } from '@angular/core';
-import { WeatherService } from '../../../services/weather.service';
+import { WeatherService } from '@services/weather.service';
 import { CommonModule } from '@angular/common';
-import { CityWeather } from '../../../models/city-weather.model';
+import { CityWeather } from '@models/city-weather.model';
 import { RouterLink } from '@angular/router';
 import { map, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
