@@ -25,13 +25,12 @@
         [cityWeatherForecast]="cityWeatherForecast"></app-city-weather-card-forecast>
     </div>
   </section>
-  <section class="weather-forecast-daily">
+  <section class="page-detail-forecast-daily">
     @for (day of cityWeatherForecast.forecast.forecastday; track $index) {
     <app-city-weather-card-daily-forecast [cityWeatherForecastDay]="day"></app-city-weather-card-daily-forecast>
     }
   </section>
-
-  <section class="weather-forecast-hourly">
+  <section class="page-detail-forecast-hourly">
     <mat-tab-group>
       @for (day of cityWeatherForecast.forecast.forecastday; track $index) {
       <mat-tab label={{day.date}}>
