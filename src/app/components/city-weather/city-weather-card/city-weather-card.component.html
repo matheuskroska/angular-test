@@ -2,12 +2,12 @@
   <mat-card-header>
     <mat-card-title>
       <div class="tooltip">
-        <p class="mat-body-2 city-weather-city">{{weather.location.name + ', '}}</p>
-        <span class="tooltiptext">{{weather.location.name}}</span>
+        <p class="mat-body-2 city-weather-city" #tooltip="matTooltip" matTooltip="{{weather.location.name}}"
+          matTooltipHideDelay="500">{{weather.location.name + ', '}}</p>
       </div>
       <div class="tooltip">
-        <p class="mat-body-2 city-weather-state">{{weather.location.region}}</p>
-        <span class="tooltiptext">{{weather.location.region}}</span>
+        <p class="mat-body-2 city-weather-state" #tooltip="matTooltip" matTooltip="{{weather.location.region}}"
+          matTooltipHideDelay="500">{{weather.location.region}}</p>
       </div>
     </mat-card-title>
     <mat-card-subtitle>
@@ -28,25 +28,25 @@
       <p class="mat-body-2 city-weather-condition">{{weather.current.condition.text}}</p>
     </div>
     <div class="city-weather-card__column">
-      <div class="tooltip city-weather-wind">
+      <div class="tooltip city-weather-wind" #tooltip="matTooltip" matTooltip="Velocidade do vento"
+        matTooltipHideDelay="500">
         {{weather.current.wind_kph}} km/h
         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="air"></mat-icon>
-        <span class="tooltiptext">Vento</span>
       </div>
-      <div class="tooltip city-weather-humidity">
+      <div class="tooltip city-weather-humidity" #tooltip="matTooltip" matTooltip="Humidade do ar"
+        matTooltipHideDelay="500">
         {{weather.current.humidity}}%
         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="water_drop"></mat-icon>
-        <span class="tooltiptext">Umidade</span>
       </div>
-      <div class="tooltip city-weather-precipitation">
+      <div class="tooltip city-weather-precipitation" #tooltip="matTooltip" matTooltip="Precipitação"
+        matTooltipHideDelay="500">
         {{weather.current.precip_mm}} mm
         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="cloud_snowing"></mat-icon>
-        <span class="tooltiptext">Precipitação</span>
       </div>
-      <div class="tooltip city-weather-cloud">
+      <div class="tooltip city-weather-cloud" #tooltip="matTooltip" matTooltip="Quantidade de nuvens"
+        matTooltipHideDelay="500">
         {{weather.current.cloud}}%
         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="cloud_queue"></mat-icon>
-        <span class="tooltiptext">Nuvens</span>
       </div>
     </div>
   </mat-card-content>

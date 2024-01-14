@@ -10,12 +10,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @Component({
   selector: 'app-city-weather-card',
   standalone: true,
-  imports: [CommonModule, RouterLink, MatIconModule, MatCardModule, MatGridListModule, MatButtonModule, MatProgressSpinnerModule],
+  imports: [MatTooltipModule, CommonModule, RouterLink, MatIconModule, MatCardModule, MatGridListModule, MatButtonModule, MatProgressSpinnerModule],
   templateUrl: './city-weather-card.component.html',
   styleUrl: './city-weather-card.component.scss'
 })

@@ -1,0 +1,63 @@
+.page-detail-intro {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  column-gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.forecast-grid {
+  display: grid;
+  row-gap: 2rem;
+}
+
+.weather-intro .weather-intro-temp-current {
+  font-size: 10rem;
+  font-weight: 500;
+}
+
+.weather-intro mat-card,
+.weather-intro mat-card-content {
+  height: 100%;
+}
+
+.weather-intro mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.weather-intro mat-card-title {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.weather-intro-temp__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-intro-temp .weather-intro-temp-img {
+  width: 100px;
+  height: 100px;
+}
+
+.weather-intro-temp .weather-intro-temp-feels {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.weather-forecast-daily {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.weather-forecast-hourly {
+  max-height: 550px;
+  overflow: auto;
+  margin-bottom: 5rem;
+}

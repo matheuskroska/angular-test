@@ -1,7 +1,8 @@
 <mat-card class="city-weather-natural-language">
   <mat-card-content>
     @if(weather === 'current') {
-    <mat-card-title>Previsão para hoje</mat-card-title>
+    <img src="{{cityWeatherForecast.current.condition.icon}}" alt="{{cityWeatherForecast.current.condition.text}}">
+    <mat-card-title class="mat-h1">O tempo hoje</mat-card-title>
     <p>
       O tempo hoje em <b>{{cityWeatherForecast.location.name}}</b> é de
       <b>{{cityWeatherForecast.current.condition.text}}.</b>
@@ -15,7 +16,9 @@
       <b>{{cityWeatherForecast.forecast.forecastday[0].day.daily_chance_of_rain}}%.</b>
     </p>
     } @else {
-    <mat-card-title>Previsão para amanhã</mat-card-title>}
+    <img src="{{cityWeatherForecast.forecast.forecastday[1].day.condition.icon}}"
+      alt="{{cityWeatherForecast.forecast.forecastday[1].day.condition.text}}">
+    <mat-card-title class="mat-h1">O tempo amanhã</mat-card-title>
     <p>
       O tempo amanhã em <b>{{cityWeatherForecast.location.name}}</b> é de
       <b>{{cityWeatherForecast.forecast.forecastday[1].day.condition.text}}.</b>
@@ -28,5 +31,6 @@
       A previsão indica que chuvas tem probabilidade de
       <b>{{cityWeatherForecast.forecast.forecastday[1].day.daily_chance_of_rain}}%.</b>
     </p>
+    }
   </mat-card-content>
 </mat-card>

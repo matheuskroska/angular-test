@@ -8,11 +8,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CityWeatherCardDailyForecastComponent } from '@components/city-weather/city-weather-card-daily-forecast/city-weather-card-daily-forecast.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CityWeatherCardHourlyForecastComponent } from '@components/city-weather/city-weather-card-hourly-forecast/city-weather-card-hourly-forecast.component';
+import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [PageHeaderComponent, CityWeatherCardForecastComponent, MatProgressSpinnerModule, CityWeatherCardDailyForecastComponent, MatTabsModule, CityWeatherCardHourlyForecastComponent],
+  imports: [CommonModule, MatCardModule, PageHeaderComponent, CityWeatherCardForecastComponent, MatProgressSpinnerModule, CityWeatherCardDailyForecastComponent, MatTabsModule, CityWeatherCardHourlyForecastComponent],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss'
 })

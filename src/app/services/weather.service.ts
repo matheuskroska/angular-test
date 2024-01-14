@@ -63,7 +63,7 @@ export class WeatherService {
 
   searchWeatherDataForecast(cityName: string): Observable<CityWeatherForecast> {
     const options = { headers: this.getHeaders() };
-    return this.http.get<CityWeatherForecast>(`${environment.apiUrl}/forecast.json?q=${cityName}&days=3&lang=pt`, options);
+    return this.http.get<CityWeatherForecast>(`${environment.apiUrl}/forecast.json?q=${cityName}&days=7&lang=pt`, options);
   }
 
   searchCityNames(cityName: string): Observable<City[]> {

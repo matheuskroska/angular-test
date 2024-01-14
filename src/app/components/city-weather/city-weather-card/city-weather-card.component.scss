@@ -69,28 +69,11 @@ mat-card-actions .detail-btn {
 }
 
 .tooltip {
-  position: relative;
   display: flex;
   text-align: right;
   justify-content: end;
   column-gap: 10px;
   align-items: center;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  min-width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
 }
 
 .city-weather-temp {

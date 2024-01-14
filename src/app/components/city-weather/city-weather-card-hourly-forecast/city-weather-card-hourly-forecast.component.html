@@ -1,13 +1,40 @@
-<table>
-  <tr>
-    <td>{{cityWeatherForecastHour.time}}</td>
-    <td>{{cityWeatherForecastHour.temp_c}}</td>
-    <td>{{cityWeatherForecastHour.condition.text}}</td>
-    <td>{{cityWeatherForecastHour.wind_kph}}</td>
-    <td>{{cityWeatherForecastHour.wind_degree}}</td>
-    <td>{{cityWeatherForecastHour.wind_dir}}</td>
-    <td>{{cityWeatherForecastHour.precip_mm}}</td>
-    <td>{{cityWeatherForecastHour.humidity}}</td>
-    <td>{{cityWeatherForecastHour.cloud}}</td>
-  </tr>
-</table>
+<mat-card class="card-hourly-forecast">
+  <mat-card-content class="card-hourly-forecast__wrapper">
+    <div class="card-hourly-forecast__col">{{cityWeatherForecastHour.time | date:'H:mm'}}</div>
+    <div class="card-hourly-forecast__col">
+      <img [src]="cityWeatherForecastHour.condition.icon" alt="Weather icon" />
+    </div>
+    <div class="card-hourly-forecast__col">
+      <span>
+        {{cityWeatherForecastHour.precip_mm}}mm
+      </span>
+      <span class="hourly-rain-chance">
+        {{cityWeatherForecastHour.chance_of_rain}}%
+      </span>
+    </div>
+    <div class="card-hourly-forecast__col hourly-temp">{{cityWeatherForecastHour.temp_c}}°</div>
+    <div class="card-hourly-forecast__col">
+      <span class="hourly-condition-text">{{cityWeatherForecastHour.condition.text}}</span>
+      <span>Sensação T. {{cityWeatherForecastHour.feelslike_c}}°</span>
+    </div>
+    <div class="card-hourly-forecast__col hourly-icon">
+      <mat-icon color="primary">air</mat-icon>
+      <div class="card-hourly-forecast__col__wrapper">
+        <span class="wind-dir">
+          {{cityWeatherForecastHour.wind_dir}}
+        </span>
+        <span>
+          {{cityWeatherForecastHour.wind_kph}}km/h
+        </span>
+      </div>
+    </div>
+    <div class="card-hourly-forecast__col hourly-icon">
+      <mat-icon color="accent">wb_sunny</mat-icon>
+      <div class="card-hourly-forecast__col__wrapper">
+        <span>{{cityWeatherForecastHour.uv}}</span>
+        <span>FPS {{cityWeatherForecastHour.heatindex_c}}</span>
+      </div>
+
+    </div>
+  </mat-card-content>
+</mat-card>
