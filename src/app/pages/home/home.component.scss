@@ -31,3 +31,10 @@ mat-card.city-weather-detail mat-card-header {
   max-width: 400px;
   width: 100%;
 }
+
+@media (max-width: 1200px) {
+  .weather-list {
+    display: flex;
+    flex-direction: column;
+  }
+}

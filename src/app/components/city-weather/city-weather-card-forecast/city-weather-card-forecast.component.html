@@ -1,8 +1,12 @@
 <mat-card class="city-weather-natural-language">
-  <mat-card-content>
+  <mat-card-content class="city-weather-natural-language-card">
     @if(weather === 'current') {
-    <img src="{{cityWeatherForecast.current.condition.icon}}" alt="{{cityWeatherForecast.current.condition.text}}">
-    <mat-card-title class="mat-h1">O tempo hoje</mat-card-title>
+    <div class="city-weather-natural-language-intro">
+      <mat-card-title class="mat-h1">O tempo hoje</mat-card-title>
+      <div class="city-weather-natural-language-img-wrapper">
+        <img src="{{cityWeatherForecast.current.condition.icon}}" alt="{{cityWeatherForecast.current.condition.text}}">
+      </div>
+    </div>
     <p>
       O tempo hoje em <b>{{cityWeatherForecast.location.name}}</b> é de
       <b>{{cityWeatherForecast.current.condition.text}}.</b>
@@ -16,9 +20,13 @@
       <b>{{cityWeatherForecast.forecast.forecastday[0].day.daily_chance_of_rain}}%.</b>
     </p>
     } @else {
-    <img src="{{cityWeatherForecast.forecast.forecastday[1].day.condition.icon}}"
-      alt="{{cityWeatherForecast.forecast.forecastday[1].day.condition.text}}">
-    <mat-card-title class="mat-h1">O tempo amanhã</mat-card-title>
+    <div class="city-weather-natural-language-intro">
+      <mat-card-title class="mat-h1">O tempo amanhã</mat-card-title>
+      <div class="city-weather-natural-language-img-wrapper">
+        <img src="{{cityWeatherForecast.forecast.forecastday[1].day.condition.icon}}"
+          alt="{{cityWeatherForecast.forecast.forecastday[1].day.condition.text}}">
+      </div>
+    </div>
     <p>
       O tempo amanhã em <b>{{cityWeatherForecast.location.name}}</b> é de
       <b>{{cityWeatherForecast.forecast.forecastday[1].day.condition.text}}.</b>

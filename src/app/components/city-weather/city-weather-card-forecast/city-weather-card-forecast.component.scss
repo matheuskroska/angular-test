@@ -1,0 +1,33 @@
+.city-weather-natural-language-card {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  align-items: center;
+}
+
+.city-weather-natural-language-intro {
+  flex-direction: column;
+  align-items: center;
+}
+
+.city-weather-natural-language-intro mat-card-title {
+  font-size: 2.2rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.city-weather-natural-language-img-wrapper {
+  text-align: left;
+}
+
+.city-weather-natural-language-img-wrapper img {
+  width: 100%;
+  max-width: 120px;
+  border: 1px solid #e9e9e9;
+}
+
+@media screen and (max-width: 1200px) {
+  .city-weather-natural-language-card {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+}

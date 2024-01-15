@@ -1,11 +1,15 @@
 <main class="page-detail container">
-  <app-page-header icon="air" title="Visão Detalhada" subtitle="dados meteorologicos"></app-page-header>
+  <app-page-header icon="air" title="Visão Detalhada" subtitle="dados meteorológicos"></app-page-header>
   @if(cityWeatherForecast) {
 
   <section class="page-detail-intro">
     <div class="weather-intro">
       <mat-card>
         <mat-card-content>
+          <p class="weather-intro-location">
+            <b>{{cityWeatherForecast.location.name + ", "}}</b>{{cityWeatherForecast.location.region}}
+          </p>
+          <p class="weather-intro-date">{{cityWeatherForecast.location.localtime | date:'EEEE d MMM'}}</p>
           <mat-card-title class="mat-h1">{{cityWeatherForecast.current.condition.text}}</mat-card-title>
           <div class="weather-intro-temp">
             <div class="weather-intro-temp__wrapper">
@@ -48,7 +52,9 @@
 
 
   }@else {
-  <mat-spinner></mat-spinner>
+  <div class="mat-spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
   }
 
 </main>

@@ -1,12 +1,15 @@
 <div class="daily-forecast">
   <mat-card>
     <mat-card-content>
-      <span>{{cityWeatherForecastDay.date | date:'EEEE d MMM'}}</span>
-      <img src="{{cityWeatherForecastDay.day.condition.icon}}" alt="{{cityWeatherForecastDay.day.condition.text}}">
+      <span class="daily-forecast-date">{{cityWeatherForecastDay.date | date:'EEEE d MMM'}}</span>
+      <div class="daily-forecast-img-wrapper">
+        <img class="daily-forecast-img" src="{{cityWeatherForecastDay.day.condition.icon}}"
+          alt="{{cityWeatherForecastDay.day.condition.text}}">
+      </div>
       <p>{{cityWeatherForecastDay.day.daily_chance_of_rain}}%</p>
       <p>{{cityWeatherForecastDay.day.totalprecip_mm}}mm</p>
       <p>{{cityWeatherForecastDay.day.maxwind_kph}}</p>
-      <div>
+      <div class="daily-forecast-minmax-wrapper">
         <span class="daily-forecast-maxtemp">{{cityWeatherForecastDay.day.maxtemp_c + " / "}}°</span>
         <span class="daily-forecast-mintemp">{{cityWeatherForecastDay.day.mintemp_c}}°</span>
       </div>

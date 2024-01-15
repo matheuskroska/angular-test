@@ -37,3 +37,10 @@
 .wind-dir {
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .card-hourly-forecast__wrapper {
+    overflow: auto;
+    white-space: nowrap;
+  }
+}

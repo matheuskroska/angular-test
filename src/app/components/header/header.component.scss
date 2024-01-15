@@ -25,3 +25,9 @@ mat-toolbar-row {
 .svg-text {
   margin-bottom: 1rem;
 }
+
+@media (max-width: 1200px) {
+  .svg-text {
+    display: none;
+  }
+}
