@@ -22,6 +22,9 @@ Overview
 
 Clone o repositório e em seguida execute
 <br>
+A chave da API está nos environments, está exposta, mas é gratuita, se preferir, crie uma conta 
+em https://www.weatherapi.com/
+
 ```npm install``` & ```ng serve```
 
 ## Testes
