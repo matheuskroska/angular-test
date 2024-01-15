@@ -29,7 +29,7 @@ em https://www.weatherapi.com/
 
 ## Testes
 
-```npm run jest:coverage```
+```npm run test:coverage```
 
 Cobri os serviços com testes.
 
