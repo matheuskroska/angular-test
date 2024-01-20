@@ -1,27 +1,78 @@
-# AngularTest
+## CloudCANVAS
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
+Overview
 
-## Development server
+<p align="center">
+  <a href="https://unform.dev">
+    <img src="https://i.imgur.com/oCLkgL1.png" height="auto" width="300" alt="Unform" />
+    
+  </a>
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<br>
+<p align="center">
+   <img src="https://i.imgur.com/gUUrGGe.png" height="auto" width="auto" alt="NutriPlan"/>
+  
+</p>
+<p align="center">
+   <img src="https://i.imgur.com/uvERv7n.png" height="auto" width="auto" alt="NutriPlan"/>
+</p>
 
-## Code scaffolding
+- **[Instalação]()**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Clone o repositório e em seguida execute
+<br>
+A chave da API está nos environments, está exposta, mas é gratuita, se preferir, crie uma conta 
+em https://www.weatherapi.com/
 
-## Build
+```npm install``` & ```ng serve```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Testes
 
-## Running unit tests
+```npm run test:coverage```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Cobri os serviços com testes.
 
-## Running end-to-end tests
+## API's utilizadas
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- https://www.weatherapi.com/,  consultando três endpoints distintos:
+- /search
+- /current
+- /forecast
 
-## Further help
+## Features
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [x] Autocomplete de cidades pesquisadas
+- [x] Consulta a previsão do tempo de até 7 dias e seus horários.
+- [x] Light/Dark mode. 
+
+## Idéia
+
+<br>
+- Minha ideia é consumir uma primeira API com apenas dados simples da cidade e exibir nos cards da home.
+<br>
+- Esse autocomplete tem um debounce e o atualizar cidade tambem.
+<br>
+- Tratei os dados de retorno da API para exibir a data atualizada da requisição e adicionei um campo extra "URL"
+<br>
+ - fiz dessa forma pois a API de Autocomplete não dá o ID da cidade, a URL é "cidade-estado-pais"
+<br>
+- Garanto assim que a cidade seja sempre a correta escolhida.
+<br>
+- As requisições subsequentes a outros endpoints exibem dados completos no card e na página detalhe
+<br>
+- As requisições são sempre feitas dentro de um serviço e para a página detalhes eu forneco a "URL"
+<br>
+- Utilizei um serviço para guardar, atualizar e deletar meus dados, e persistir entre trocas de tela, semelhante a uma Store.
+<br>
+- Componetizei a aplicação de forma a poder utilizar a maioria dos blocos, deixei os estilos relacionados ao componente dentro dos proprios componentes
+<br>
+- Os estilos de layout ( grids, responsividade) são responsabilidade das pages.
+<br>
+- Tentei utilizar recursos recentes como "Standalone Componentes" e "Control Flow"
+<br>
+- Não consegui concluir todos os requisitos, mas tentei mostrar um pouco de cada coisa
+<br>
+- Em detrimento do tempo e para deixar a aplicação mais polida, não realizei todos os testes.
+
+
